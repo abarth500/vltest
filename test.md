@@ -3,11 +3,17 @@ layout: default
 title: Home
 ---
 
-# Section 1
+# 46th International Conference on Very Large Data Bases
 
-## Section 1.1
+## <i class="fas fa-globe-asia"></i> Tokyo Japan &mdash; <i class="far fa-calendar-alt"></i> August 30
+<i class="fas fa-arrow-right"></i> September 4, 2020 VLDB is a premier annual international forum for data management and database researchers, vendors, practitioners, application developers, and users. The VLDB 2020 conference will feature research talks, tutorials, demonstrations, and workshops. It will cover issues in data management, database and information systems research, since they are the technological cornerstones of the emerging applications of the 21st century.
 
-### Section 1.1.1
+### VLDB2020 Venue
 
-* test
+    <ul class="fa-ul">
+        <li><span class="fa-li"><i class="fas fa-hotel"></i></span><strong>Keio Plaza Hotel Tokyo</strong></li>
+        <li><span class="fa-li"><i class="fas fa-map"></i></span>2-2-1 Nishi-Shinjuku, Shinjuku-Ku, Tokyo
+            160-8330 Japan</li>
+        <li><span class="fa-li"><i class="fas fa-phone"></i></span>+81 3 3344 0111</li>
+    </ul>
 
