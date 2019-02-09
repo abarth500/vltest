@@ -1,8 +1,6 @@
 ---
-layout: page
-title: "Jerkll Test Page"
-author: "Shohei Yokoyama"
-categories: information
+layout: default
+title: Home
 ---
 
 # Section 1
