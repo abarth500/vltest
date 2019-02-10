@@ -76,7 +76,7 @@ const submenuToggle = (before, after) => {
     });
 }
 
-document.getElementById('submenu-mask').addEventListener('click', () => {
+const maskClear = () => {
     if (submenuInAction) {
         return;
     }
@@ -87,12 +87,20 @@ document.getElementById('submenu-mask').addEventListener('click', () => {
     let after = null;
     document.querySelector('input[name="submenu-active"]:checked').checked = false;
     submenuToggle(before, after);
-});
+}
+
+let sublinks = document.querySelectorAll('.submenu-item:not(.link-disable)');
+for (var c = 0; c < sublinks.length; c++) {
+    sublinks[c].addEventListener('click', maskClear);
+}
+
+document.getElementById('submenu-mask').addEventListener('click', maskClear);
 
 const menuItem = document.getElementsByClassName('submenu-toggle');
 for (let c = 0; c < menuItem.length; c++) {
     menuItem[c].addEventListener('click', (e) => {
         if (submenuInAction) {
+            e.stopPropagation();
             return;
         }
         let before = null;
@@ -136,6 +144,20 @@ document.onkeydown = (e) => {
     }
 };
 
+
+Barba.Pjax.start();
+Barba.Dispatcher.on('linkClicked', function () {
+    console.log("Click");
+});
+Barba.Dispatcher.on('newPageReady', function (currentStatus, oldStatus, container) {
+    //eval(container.querySelector("script").innerHTML);
+    const category = container.attributes['x-category'].value;
+    document.getElementById('toppage-cnt').setAttribute('class', category);
+    console.log(document.querySelector('input[name="submenu-active"][value="' + category + '"]'));
+    document.querySelector('input[name="category-active"][value="' + category + '"]').checked = true;
+});
+Barba.Prefetch.init();
+
 const categoryColors = {};
 (() => {
     const col = document.getElementsByClassName('menu-line');
@@ -144,12 +166,15 @@ const categoryColors = {};
         let category = col[c].parentNode.querySelector('label').attributes['x-category'].value;
         categoryColors[category] = color;
     }
+    let links = document.querySelectorAll('a[href]');
+    const cbk = function (e) {
+        if (e.currentTarget.href === window.location.href) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    };
+    for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', cbk);
+    }
 })();
 
-Barba.Pjax.start();
-Barba.Dispatcher.on('linkClicked', function() {
-  console.log("Click");
-});
-Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container) {
-    eval(container.querySelector("script").innerHTML);
-});

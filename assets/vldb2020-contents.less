@@ -1,4 +1,4 @@
-#contents-body>div,#contents-body>main{    
+#contents-body>header,#contents-body>main,#contents-body>footer{    
     margin: auto;
     padding: 1.5vw;
     width: 90vw;
@@ -10,13 +10,11 @@
 }
 
 .contents-header {
-    _background-color: @color-conference;
     color: @color-white;
     height: 10px;
 }
 
 .contents-footer {
-    _background-color: @color-conference;
     color: @color-white;
     font-size: .7rem;
 }
@@ -31,7 +29,7 @@
 }
 
 each(@categories, {
-    #toppage-cnt.@{value} #contents-body .contents-header, #contents-body.@{value} .contents-footer{
+    #toppage-cnt.@{value} #contents-body .contents-header, #toppage-cnt.@{value} #contents-body .contents-footer{
         background-color: extract(@categories-color, @index);
     }
     #toppage-cnt.@{value} .menu-btn svg.scroll-btn>rect{
