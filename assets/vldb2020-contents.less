@@ -1,43 +1,32 @@
-#contents-body>div,#contents-body>main{
-    background-color: fadeout(@color-white, 3%);
+#contents-body>div,#contents-body>main{    
     margin: auto;
     padding: 1.5vw;
     width: 90vw;
     max-width: 800px;
 }
 
+#contents-body>main{
+    background-color: fadeout(@color-white, 3%);
+}
+
 .contents-header {
     _background-color: @color-conference;
     color: @color-white;
     height: 10px;
-    _margin: auto;
-    _padding: 1.5vw;
-    _width: 90vw;
-    _max-width: 800px;
 }
 
 .contents-footer {
     _background-color: @color-conference;
     color: @color-white;
     font-size: .7rem;
-    _margin: auto;
-    _padding: 1.5vw;
-    _width: 90vw;
-    _max-width: 800px;
 }
 
 #contents-body {
     overflow-y: auto;
     height: calc(100vh - @topscrollbtn-height);
-    _opacity: .99;
 }
 
 #contents-body article {
-    _background-color: @color-white;
-    _margin: auto;
-    _padding: 1.5vw;
-    _width: 90vw;
-    _max-width: 800px;
     color: @color-black;
 }
 
