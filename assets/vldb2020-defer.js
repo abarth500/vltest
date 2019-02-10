@@ -10,7 +10,6 @@ const submenuToggle = (before, after) => {
     if (before === after) {
         after = null;
     }
-    console.log(before, "=>", after);
     if (after == null) {
         sequence.push(new Promise(resolve => {
             anime({
@@ -42,11 +41,9 @@ const submenuToggle = (before, after) => {
     }
     if (after != null) {
         if (before == null) {
-            console.log("show mask");
             document.getElementById("submenu-mask").style.display = "block";
             sequence.push(
                 new Promise(resolve => {
-                    console.log("show mask --> go");
                     anime({
                         targets: "#submenu-mask",
                         opacity: 0.8,
@@ -59,9 +56,7 @@ const submenuToggle = (before, after) => {
             );
         }
         let panelID = 'submenu-panel-' + after;
-        console.log("show panel");
         sequence.push(new Promise(resolve => {
-            console.log("show panel --> " + panelID);
             document.getElementById(panelID).style.zIndex = 95;
             anime({
                 targets: '#' + panelID,
@@ -76,10 +71,8 @@ const submenuToggle = (before, after) => {
         })
         );
     }
-    console.log("start!");
     Promise.all(sequence).then(function (message) {
         submenuInAction = false;
-        console.log(message);	// [ "3秒経過", "1秒経過", "2秒経過", ]
     });
 }
 
@@ -125,6 +118,11 @@ document.onkeydown = (e) => {
                 return;
             }
         }
+        let el = document.getElementById('contents-body');
+        let height = parseInt(window.getComputedStyle(el).getPropertyValue('height'));
+        if (document.getElementById("toppage-toggle").checked && Math.ceil(el.scrollTop + height) < el.scrollHeight) {
+            return;
+        }
         document.getElementById("toppage-toggle").checked = !document.getElementById("toppage-toggle").checked;
     } else if (e.keyCode == '38') {
         let submenu = document.getElementsByClassName('submenu-active');
@@ -137,3 +135,21 @@ document.onkeydown = (e) => {
         }
     }
 };
+
+const categoryColors = {};
+(() => {
+    const col = document.getElementsByClassName('menu-line');
+    for (let c = 0; c < col.length; c++) {
+        let color = window.getComputedStyle(col[c]).getPropertyValue('background-color');
+        let category = col[c].parentNode.querySelector('label').attributes['x-category'].value;
+        categoryColors[category] = color;
+    }
+})();
+
+Barba.Pjax.start();
+Barba.Dispatcher.on('linkClicked', function() {
+  console.log("Click");
+});
+Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container) {
+    eval(container.querySelector("script").innerHTML);
+});

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Home
+category: conference
 ---
 
 # 46th International Conference on Very Large Data Bases

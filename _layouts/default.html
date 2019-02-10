@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>VLDB2020 - 46th International Conference on Very Large Data Bases</title>
+    <title>{{ page.title }}</title>
 
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
         crossorigin="anonymous">
@@ -15,8 +15,7 @@
     <!-- link rel="stylesheet/less" type="text/css" href="assets/fluidable.less" -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js" integrity="sha256-pD9KZEZQimTLQOMTT99lBhGT7AXyMPz3g92G1iyd470="
-        crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
     <script src="assets/vldb2020.js"></script>
     <script src="assets/vldb2020-defer.js" defer></script>
     <!-- link rel="icon" href="images/favicon.png"-->
@@ -36,7 +35,8 @@
     <div id="left-menu-bar" class="container">
         <div class="col-group">
             <div class="col-mb-4">
-                <input type="radio" name="category-active" class="category-active" id="category-conference" style="display:none;">
+                <input type="radio" name="category-active" value="conference" class="category-active" id="category-conference"
+                    style="display:none;">
                 <label x-category="conference" class="menu-item submenu-toggle">
                     <div class="col-mb-12">
                         <i class="fas fa-university"></i><span class="hide-phone logo-font">&emsp;VLDB2020</span>
@@ -45,7 +45,8 @@
                 <div class="col-mb-12 menu-line bgcol-conference"></div>
             </div>
             <div class="col-mb-4">
-                <input type="radio" name="category-active" class="category-active" id="category-contributions" style="display:none;">
+                <input type="radio" name="category-active" value="contributions" class="category-active" id="category-contributions"
+                    style="display:none;">
                 <label x-category="contributions" class="menu-item submenu-toggle">
                     <div class="col-mb-12 ">
                         <i class="fas fa-bullhorn"></i><span class="hide-phone">&emsp;Contributions</span>
@@ -54,7 +55,8 @@
                 <div class="col-mb-12 menu-line bgcol-contributions"></div>
             </div>
             <div class="col-mb-4">
-                <input type="radio" name="category-active" class="category-active" id="category-sponsorship" style="display:none;">
+                <input type="radio" name="category-active" value="sponsorship" class="category-active" id="category-sponsorship"
+                    style="display:none;">
                 <label x-category="sponsorship" class="menu-item submenu-toggle">
                     <div class="col-mb-12">
                         <i class="fas far fa-handshake"></i><span class="hide-phone">&emsp;Sponsorship</span>
@@ -67,7 +69,8 @@
     <div id="right-menu-bar">
         <div class="col-group">
             <div class="col-mb-4">
-                <input type="radio" name="category-active" class="category-active" id="category-information" style="display:none;">
+                <input type="radio" name="category-active" value="information" class="category-active" id="category-information"
+                    style="display:none;">
                 <label x-category="information" class="menu-item submenu-toggle">
                     <div class="col-mb-12">
                         <i class="fas fa-info"></i><span class="hide-phone">&emsp;Information</span>
@@ -76,7 +79,8 @@
                 <div class="col-mb-12 menu-line bgcol-information"></div>
             </div>
             <div class="col-mb-4">
-                <input type="radio" name="category-active" class="category-active" id="category-4authors" style="display:none;">
+                <input type="radio" name="category-active" value="4authors" class="category-active" id="category-4authors"
+                    style="display:none;">
                 <label x-category="4authors" class="menu-item submenu-toggle">
                     <div class="col-mb-12">
                         <i class="fas fa-pen-fancy"></i><span class="hide-phone">&emsp;for Authors</span>
@@ -85,7 +89,8 @@
                 <div class="col-mb-12 menu-line bgcol-4authors"></div>
             </div>
             <div class="col-mb-4">
-                <input type="radio" name="category-active" class="category-avtive" id="category-4participants" style="display:none;">
+                <input type="radio" name="category-active" value="4participants" class="category-avtive" id="category-4participants"
+                    style="display:none;">
                 <label x-category="4participants" class="menu-item submenu-toggle">
                     <div class="col-mb-12">
                         <i class="fas fas fas fa-plane-arrival"></i><span class="hide-phone">&emsp;for Participants</span>
@@ -107,7 +112,6 @@
                 </svg>
             </div>
         </div>
-        <br clear="both">
         <div class="submenu-item link-disable">Research Track</div>
         <div class="submenu-item link-disable">Industrial Track</div>
         <div class="submenu-item link-disable">PhD Track</div>
@@ -128,7 +132,6 @@
                 </svg>
             </div>
         </div>
-        <br clear="both">
         <div class="submenu-item link-disable">Sponsorship Benefits</div>
         <hr>
         <div class="submenu-item link-disable">Our Sponsors</div>
@@ -145,9 +148,10 @@
                 </svg>
             </div>
         </div>
-        <br clear="both">
         <div class="submenu-item link-disable">Conference Overview</div>
-        <div class="submenu-item link-disable">Conference Offisors</div>
+        <a href="officers.html">
+            <div class="submenu-item">Conference Officers</div>
+        </a>
         <div class="submenu-item link-disable">PVLDB Review Board</div>
         <div class="submenu-item link-disable">Contact</div>
     </div>
@@ -163,34 +167,32 @@
                 </svg>
             </div>
         </div>
-        <br clear="both">
         <div class="submenu-item link-disable">Inportant Date</div>
         <hr>
         <div class="submenu-item link-disable">Formatting Guidelines</div>
         <div class="submenu-item link-disable">Submission Guidelines</div>
     </div>
     <div id="submenu-panel-4participants" class="right-submenu-panel bgcol-4participants-dark">
-            <div>
-                <div x-category="4participants" class="submenu-close submenu-toggle">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="scroll-btn" viewBox="0 0 1000 1200" width="100%" height="100%"
-                        preserveAspectRatio="xMidYMid slice">
-                        <polyline points="200 700 500 1100 800 700" />
-                        <circle id="dot1" cx="500" cy="400" r="50" />
-                        <circle id="dot2" cx="500" cy="640" r="50" />
-                        <circle id="dot3" cx="500" cy="880" r="50" />
-                    </svg>
-                </div>
+        <div>
+            <div x-category="4participants" class="submenu-close submenu-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="scroll-btn" viewBox="0 0 1000 1200" width="100%" height="100%"
+                    preserveAspectRatio="xMidYMid slice">
+                    <polyline points="200 700 500 1100 800 700" />
+                    <circle id="dot1" cx="500" cy="400" r="50" />
+                    <circle id="dot2" cx="500" cy="640" r="50" />
+                    <circle id="dot3" cx="500" cy="880" r="50" />
+                </svg>
             </div>
-            <br clear="both">
-            <div class="submenu-item link-disable">Registration</div>
-            <div class="submenu-item link-disable">Conference Venue</div>
-            <div class="submenu-item link-disable">Lodging</div>
-            <div class="submenu-item link-disable">Travel Fellowship</div>
-            <div class="submenu-item link-disable">Visa Information</div>
-            <div class="submenu-item link-disable">Public Transport</div>
-            <div class="submenu-item link-disable">Local Attractions</div>
-            <div class="submenu-item link-disable">Public Safety</div>
         </div>
+        <div class="submenu-item link-disable">Registration</div>
+        <div class="submenu-item link-disable">Conference Venue</div>
+        <div class="submenu-item link-disable">Lodging</div>
+        <div class="submenu-item link-disable">Travel Fellowship</div>
+        <div class="submenu-item link-disable">Visa Information</div>
+        <div class="submenu-item link-disable">Public Transport</div>
+        <div class="submenu-item link-disable">Local Attractions</div>
+        <div class="submenu-item link-disable">Public Safety</div>
+    </div>
     <div class="submenu-mask" id="submenu-mask"></div>
     <svg xmlns="http://www.w3.org/2000/svg" class="toppage-wrap" viewBox="0 0 1080 1080" width="100vw" height="100vh"
         preserveAspectRatio="xMidYMid slice">
@@ -215,10 +217,7 @@
         <source src="assets/media/toppage-background.webm" type="video/webm">
         <source src="assets/media/toppage-background.mp4" type="video/mp4">
     </video>
-    <div id="toppage-cnt">
-        <script defer>
-            menuActive("category-conference");
-        </script>
+    <div id="toppage-cnt" class="{{ page.category }}">
         <label class="menu-btn" for="toppage-toggle">
             <div class="scroll-cnt">
                 <svg xmlns="http://www.w3.org/2000/svg" class="scroll-btn" viewBox="0 0 1000 1200" width="100%" height="100%"
@@ -231,10 +230,22 @@
                 </svg>
             </div>
         </label>
-        <div id="toppage-contents">
-            <article>
-                {{ content }}
-            </article>
+        <div id="contents-body">
+            <div class="contents-header"></div>
+            <main id="barba-wrapper">
+                <div class="barba-container">
+                    <script defer>
+                        menuActive("{{ page.category }}");
+                    </script>
+                    <article>
+                        {{ content }}
+                    </article>
+                </div>
+            </main>
+            <div class="contents-footer">
+                46th International Conference on Very Large Data Bases<br>
+                Tokyo, Japan - August 31 September 4, 2020
+            </div>
         </div>
     </div>
 </body>
